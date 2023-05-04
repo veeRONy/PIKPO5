@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <article>
+        <aside>
+            <h2>Меню</h2>
+            <nav>
+                <ul class="aside-menu">
+                    <li class="active">Статистика матчей</li>
+                </ul>
+            </nav>
+        </aside>
+
+        <h2 align="center">Статистика теннисных матчей за 2022 год</h2>
+
+        <table align="center">
+            <tr>
+                <th>Имя файла</th>
+                <th>Идентификатор</th>
+                <th>Дата обработки</th>
+            </tr>
+            <tbody>
+            {% for row in processed_files %}
+                <tr>
+                    <td>
+                        <a href="/data/{{row[0]}}">{{row[1]}}</a>
+                    </td>
+                    <td>
+                        {{row[0]}}
+                    </td>
+                    <td>
+                        {{row[2]}}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </article>
+
+{% endblock %}
